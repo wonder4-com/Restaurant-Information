@@ -8,6 +8,8 @@ const categories = ['Japanese', 'Vietamese', 'Chinese', 'Korean', 'American', 'M
 
 const seeding = () => {
   for (var i = 0; i < 100; i++) {
+    const priceRange = ['$','$$','$$$']
+    const randomPrice = priceRange[Math.floor(Math.random() * 3)] 
     const categoriesIndex = Math.floor(Math.random() * categories.length);
     var status = true;
     if (Math.floor(Math.random() * 2) === 0) {
@@ -18,8 +20,8 @@ const seeding = () => {
       name: faker.company.companyName(),
       claimed: status
     };
-    db.query(`INSERT INTO restaurants (category,restaurantname,claimed) 
-    VALUES ("${createRestaurant.category}", "${createRestaurant.name}", "${createRestaurant.claimed}")`)
+    db.query(`INSERT INTO restaurants (category, restaurantname, claimed, prize) 
+    VALUES ("${createRestaurant.category}", "${createRestaurant.name}", "${createRestaurant.claimed}", "${randomPrice}")`)
   }
 
   for (var i = 0 ; i < 300; i++) {

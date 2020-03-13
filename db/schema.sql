@@ -11,6 +11,7 @@ CREATE TABLE restaurants (
   category varchar(100),
   restaurantname varchar(100),
   claimed varchar(10),
+  prize varchar(10),
   PRIMARY KEY (id)
 );
 
