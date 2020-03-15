@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components should render correctly RestaurantInfo should render 1`] = `
+<div>
+  <div>
+     
+  </div>
+  <div>
+     
+     Reviews 
+    <Details />
+  </div>
+  <div>
+     
+  </div>
+</div>
+`;
+
+exports[`Components should render correctly RestaurantInfo should render 2`] = `""`;

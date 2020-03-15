@@ -20,8 +20,18 @@ app.get('/restaurant', (req, res) =>{
         if (err) {
             console.log(err)
         } else {
-            console.log(randomRestaurant);
-            res.send(result)
+            if(result.length ===0){
+                db.query(`SELECT * FROM restaurants where id=${randomRestaurant}`, (err,result) =>{
+                    if(err){
+                        console.log(err)
+                    }else{
+                        res.send(result);
+                    }
+                }) 
+            }else{
+                console.log(randomRestaurant);
+                res.send(result)
+            }
         }
     })
 })
