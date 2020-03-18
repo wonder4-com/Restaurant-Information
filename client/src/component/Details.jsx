@@ -7,6 +7,20 @@ class Details extends React.Component {
   }
 
   componentDidMount() {
+    this.updateDetailState();
+  };
+
+  convertPercentage (obj) {
+    for (var key in obj) {
+        if (obj[key]/this.props.Reviews.length *100 >= 90){
+          obj[key] = '100%';
+        } else {
+          obj[key] = obj[key]/this.props.Reviews.length *100 +10 +'%';
+        }
+    }
+  }
+
+  updateDetailState () {
     const month = {
       January: [], February: [], March: [], April: [], May: [], June: [], July: [], August: [], September: [], October: [], November: [], December: []
     };
@@ -35,15 +49,7 @@ class Details extends React.Component {
         year[date[0]].push(review.rating);
         reviewProportion[averageRating[review.rating]] += 1;
       });
-
-      for (var key in reviewProportion) {
-        if (reviewProportion[key]/this.props.Reviews.length *100 >= 90){
-          reviewProportion[key] = '100%';
-        } else {
-          reviewProportion[key] = reviewProportion[key]/this.props.Reviews.length *100 +10 +'%';
-        }
-      }
-
+      this.convertPercentage(reviewProportion);
       Object.keys(year).forEach((yearString) => {
         if (Number(yearString) < startingYear) {
           startingYear = yearString;
@@ -53,15 +59,20 @@ class Details extends React.Component {
     this.setState({
       Month: month, Year: year, ReviewProportion: reviewProportion, startYear: startingYear
     }, () => console.log(this.state));
-  };
+  }
+
 
 
   render() {
     return (
       <div className ="modal_content">
-        <div className="x-button" onClick={ this.props.updateDetailsStatus}>&times;</div>
+        <div className="x-button" id="target" onClick={ this.props.updateDetailsStatus}>&times;</div>
         <div>Overall Rating</div>
-        <div>Start Wondering since {this.state.startYear} with {this.props.Reviews.length} Reviews</div>
+        <div>
+          Start Wondering since {this.state.startYear} 
+          with {this.props.Reviews.length} 
+          Reviews
+        </div>
         <div className="barChart" style={{width: this.state.ReviewProportion.fiveStars}}>
           <span className="chartLabel">
             5 Star

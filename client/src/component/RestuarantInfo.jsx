@@ -24,39 +24,44 @@ class RestaurantInfo extends React.Component {
       dataType: 'json',
       success: (data) => {
         console.log(data);
-        var claimStatus;
-        const allReview = [];
-        if (data[0].claimed === true) {
-          claimStatus = 'Claimed';
-        } else {
-          claimStatus = 'Unclaimed';
-        }
-        const restaurant = {
-          claimed: claimStatus, name: data[0].restaurantname, price: data[0].prize, category: data[0].category 
-        };
-        if (data[0].rating !== undefined) {
-          const average = data.reduce((accumulator, currentObj) => {
-            return accumulator + currentObj.rating
-          }, 0) / data.length;
-
-          var review = { AverageRating: average, amount: data.length };
-        } else {
-          var review = { AverageRating: 0, amount: 0 }
-        }
-        if (data[0].rating !== undefined) {
-          data.forEach((review) => {
-            allReview.push({ rating: review.rating, date: review.date });
-          });
-        }
-        that.setState({ Restaurant: restaurant, Review: review, allReview: allReview }, () => {
-          console.log(that.state);
-        });
+        this.updateState(data);
       },
       error: (err) => {
         console.log(err);
       }
     });
-}
+  }
+
+  updateState (data) {
+    var claimStatus;
+    const that = this;
+    const allReview = [];
+    if (data[0].claimed === true) {
+      claimStatus = 'Claimed';
+    } else {
+      claimStatus = 'Unclaimed';
+    }
+    const restaurant = {
+      claimed: claimStatus, name: data[0].restaurantname, price: data[0].prize, category: data[0].category 
+    };
+    if (data[0].rating !== undefined) {
+      const average = data.reduce((accumulator, currentObj) => {
+        return accumulator + currentObj.rating
+      }, 0) / data.length;
+
+      var review = { AverageRating: average, amount: data.length };
+    } else {
+      var review = { AverageRating: 0, amount: 0 }
+    }
+    if (data[0].rating !== undefined) {
+      data.forEach((review) => {
+        allReview.push({ rating: review.rating, date: review.date });
+      });
+    }
+    that.setState({ Restaurant: restaurant, Review: review, allReview: allReview }, () => {
+      console.log(that.state);
+    });
+  }
 
 updateDetailsClickStatus() {
     console.log('Deatils clicked');
@@ -94,26 +99,27 @@ updateWriteReviewClickStatus() {
       <div>
         <div>{this.state.Restaurant.name}&emsp;{this.state.Restaurant.claimed}</div>
         <div>
-            {this.state.Review.AverageRating}
+          {this.state.Review.AverageRating}
             &emsp;
-            {this.state.Review.amount}
+          {this.state.Review.amount}
             &ensp;Reviews&emsp;
-            <button onClick={this.updateDetailsClickStatus}>Details</button>
-            {this.state.ShowDetails ? <Details updateDetailsStatus={this.updateDetailsClickStatus} Reviews={this.state.allReview} /> : null}
+          <button type="button" onClick={this.updateDetailsClickStatus}>Details</button>
+          {this.state.ShowDetails ? <Details updateDetailsStatus={this.updateDetailsClickStatus} Reviews={this.state.allReview} /> : null}
         </div>
         <div>{this.state.Restaurant.price}
         &emsp;
         {this.state.Restaurant.category}
         </div>
         <div>
-            <button onClick={this.updateWriteReviewClickStatus}>WriteReview</button>
-            &emsp;
-            {this.state.ShowReviewForm ? <WriteReview updateReviewFormStatus={this.updateWriteReviewClickStatus} name={this.state.Restaurant.name} /> : null}
-            <button onClick={this.updateAddPhotoClickStatus}>AddPhoto</button>
-            &emsp;
-            {this.state.ShowPhotoForm ? <AddPhoto updatePhotoFormStatus={this.updateAddPhotoClickStatus} /> : null}
-            <button>save</button>&emsp;
-            <button>share</button>
+          <button type="button" onClick={this.updateWriteReviewClickStatus}>WriteReview</button>
+          &emsp;
+          {this.state.ShowReviewForm ? <WriteReview updateReviewFormStatus={this.updateWriteReviewClickStatus} name={this.state.Restaurant.name} /> : null}
+          <button type="button" onClick={this.updateAddPhotoClickStatus}>AddPhoto</button>
+          &emsp;
+          {this.state.ShowPhotoForm ? <AddPhoto updatePhotoFormStatus={this.updateAddPhotoClickStatus} /> : null}
+          <button type="button">save</button>
+          &emsp;
+          <button type="button">share</button>
         </div>
       </div>
     );
