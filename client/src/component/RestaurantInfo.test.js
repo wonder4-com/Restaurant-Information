@@ -4,17 +4,26 @@ import RestaurantInfo from './RestuarantInfo.jsx';
 import Details from './Details.jsx'
 
 describe('Components should render correctly', () => {
-    test('RestaurantInfo should render', () => {
-        const component = shallow(<RestaurantInfo />);
+  test('should render the app component on the screen', () => {
+    const wrapper = shallow(<RestaurantInfo />);
+    expect(wrapper).toExist();
+  });
+  test('RestaurantInfo should render', () => {
+    const component = shallow(<RestaurantInfo />);
 
-        expect(component).toMatchSnapshot();
-    });
-    test('Deails should render', () => {
-        const component = shallow(<Details />);
-
-        expect(component).toMatchSnapshot();
-    });
+    expect(component).toMatchSnapshot(); 
+  });
+  test('RestaurantInfo should render', () => {
+    const component = shallow(<RestaurantInfo />);
     
+    expect((component).length.isEqual(1));
+  });
+
+  test('Deails should render', () => {
+    const component = shallow(<Details />);
+
+    expect(component).toMatchSnapshot();
+  });
 });
 
 // decribe('button component should respond', () => {

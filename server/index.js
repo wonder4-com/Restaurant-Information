@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const db = require('../db/db.js')
 
 const app = express();
-const port = 3000;
+const port = 8000;
 
 
 // parse application/x-www-form-urlencoded
@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/restaurant', (req, res) =>{
-    var randomRestaurant = Math.floor(Math.random() * 101) +1;
+    var randomRestaurant = Math.floor(Math.random() * 100) +1;
     db.query(`SELECT * FROM restaurants INNER JOIN reviews ON restaurants.id=restaurant_id WHERE restaurants.id = ${randomRestaurant}`, (err,result) =>{
         if (err) {
             console.log(err)
