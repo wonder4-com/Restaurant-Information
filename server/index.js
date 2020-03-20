@@ -15,26 +15,26 @@ app.use(bodyParser.json())
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/restaurant', (req, res) =>{
-    var randomRestaurant = Math.floor(Math.random() * 100) +1;
-    db.query(`SELECT * FROM restaurants INNER JOIN reviews ON restaurants.id=restaurant_id WHERE restaurants.id = ${randomRestaurant}`, (err,result) =>{
-        if (err) {
-            console.log(err)
-        } else {
-            if(result.length ===0){
-                db.query(`SELECT * FROM restaurants where id=${randomRestaurant}`, (err,result) =>{
-                    if(err){
-                        console.log(err)
-                    }else{
-                        res.send(result);
-                    }
-                }) 
-            }else{
-                console.log(randomRestaurant);
-                res.send(result)
-            }
-        }
-    })
-})
+  const randomRestaurant = Math.floor(Math.random() * 100) +1;
+  db.query(`SELECT * FROM restaurants INNER JOIN reviews ON restaurants.id=restaurant_id WHERE restaurants.id = ${randomRestaurant}`, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (result.length ===0) {
+        db.query(`SELECT * FROM restaurants where id=${randomRestaurant}`, (err,result) =>{
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(result);
+          }
+        }) 
+      }else{
+      console.log(randomRestaurant);
+      res.send(result)
+      }
+    }
+    });
+});
 //   res.send('Hello World!')
 // )
 

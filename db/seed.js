@@ -24,7 +24,7 @@ const seeding = () => {
     VALUES ("${createRestaurant.category}", "${createRestaurant.name}", "${createRestaurant.claimed}", "${randomPrice}")`)
   }
 
-  for (var i = 0 ; i < 300; i++) {
+  for (var i = 0 ; i < 10000; i++) {
     const randomRating = Math.floor(Math.random() * 6);
     const randomRestaurantid = Math.floor(Math.random() * 100) +1;
     const createReview = {

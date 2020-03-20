@@ -10,7 +10,7 @@ class RestaurantInfo extends React.Component {
   constructor(props) {
     super(props);
     this.state = { Restaurant: {}, Review: {}, ShowDetails: false, ShowPhotoForm: false, ShowReviewForm: false, allReview: [] };
-
+    this.updateState = this.updateState.bind(this);
     this.updateDetailsClickStatus = this.updateDetailsClickStatus.bind(this);
     this.updateWriteReviewClickStatus = this.updateWriteReviewClickStatus.bind(this);
     this.updateAddPhotoClickStatus = this.updateAddPhotoClickStatus.bind(this);
@@ -23,8 +23,8 @@ class RestaurantInfo extends React.Component {
       url: '/restaurant',
       dataType: 'json',
       success: (data) => {
-        console.log(data);
-        this.updateState(data);
+        console.log('this is my ajax call from restaurant Info', data);
+        that.updateState(data);
       },
       error: (err) => {
         console.log(err);
@@ -58,8 +58,8 @@ class RestaurantInfo extends React.Component {
         allReview.push({ rating: review.rating, date: review.date });
       });
     }
-    that.setState({ Restaurant: restaurant, Review: review, allReview: allReview }, () => {
-      console.log(that.state);
+    this.setState({ Restaurant: restaurant, Review: review, allReview: allReview }, () => {
+      console.log('this is my restaurant info state ', this.state);
     });
   }
 

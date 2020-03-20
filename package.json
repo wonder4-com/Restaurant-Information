@@ -27,7 +27,8 @@
     "react-addons-test-utils": "^15.6.2",
     "react-canvas-js": "^1.0.1",
     "react-chartjs-2": "^2.9.0",
-    "react-dom": "^16.13.0"
+    "react-dom": "^16.13.0",
+    "react-dropzone": "^10.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
