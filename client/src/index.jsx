@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import RestaurantInfo from './component/RestuarantInfo.jsx';
 
 ReactDOM.render(
-  <h1>Hello, webpack</h1>,
+  <RestaurantInfo />,
   document.getElementById('app')
 )

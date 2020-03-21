@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/db/seed.js"
+            "program": "${workspaceFolder}/"
         }
     ]
 }
