@@ -5,7 +5,7 @@ const Bar = (props) => (
     <span className="chartLabel">
       {props.Star}
     </span>
-  </div>
+ </div>
 )
 
 

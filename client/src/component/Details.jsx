@@ -5,7 +5,6 @@ import Bar from './Bar.jsx'
 class Details extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = { Month: {}, Year: {}, ReviewProportion: {}, startYear: '', SortByYearAndMonth: {} };
     this.updateDetailState = this.updateDetailState.bind(this);
     this.convertPercentage = this.convertPercentage.bind(this);
   }
@@ -85,10 +84,11 @@ class Details extends React.Component {
     return (
       <div className ="modal_content">
         <div className="x-button" id="target" onClick={this.props.updateDetailsStatus}>&times;</div>
-
+        <div className="Line_chart">
         <Chart ratingData={this.updateDetailState(this.props.Reviews).SortByYearAndMonth} />
+        </div>
         <div>Overall Rating</div>
-        <div>
+        <div className="Bar-Box">
           Start Wondering since
           {this.updateDetailState(this.props.Reviews).startYear}
           with

@@ -40,30 +40,30 @@ class Chart extends React.Component {
       averageData.push(this.getAverage(ratingData[year][month]));
     });
 
+    const colors = [
+      'rgba(241, 169, 160, 1)',
+      'rgba(54, 162, 235, 0.6)',
+      'rgba(255, 206, 86, 0.6)',
+      'rgba(75, 192, 192, 0.6)',
+      'rgba(153, 102, 255, 0.6)',
+      'rgba(255, 159, 64, 0.6)',
+      'rgba(255, 99, 132, 0.6)',
+      'rgba(255, 99, 132, 0.6)',
+      'rgba(54, 162, 235, 0.6)',
+      'rgba(255, 206, 86, 0.6)',
+      'rgba(75, 192, 192, 0.6)',
+      'rgba(153, 102, 255, 0.6)',
+      'rgba(255, 159, 64, 0.6)'
+    ];
 
-    console.log('this is line 29', this.props.ratingData);
     this.setState({
       chartData: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October' ,'November' ,'December'],
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
         datasets: [
           {
             label: 'Rating',
             data: averageData,
-            backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)'
-            ],
+            backgroundColor: colors,
             lineTension:0
           }
         ]
@@ -82,10 +82,11 @@ class Chart extends React.Component {
 
   render() {
     return (
-        <div className="App">
-          <button type="button" onClick={this.updateYearStatusTo2019}>2019 </button>
-          <button type="button" onClick={this.updateYearStatusTo2020}>2020 </button>
-
+        <div>
+          <div className="Chart-Button-Box">
+          <button className="Chart-Button" type="button" onClick={this.updateYearStatusTo2019}>2019 </button>
+          <button className="Chart-Button" type="button" onClick={this.updateYearStatusTo2020}>2020 </button>
+          </div>
           <div className="chart">
             <Line
               data={this.state.chartData}

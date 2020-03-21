@@ -9,7 +9,26 @@
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
+
+
+
+  .modal_content-review{
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    width: 40%;
+    height: 50%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
   h1{
+      position:relative;
+      margin-bottom: 4%;
+      margin-top: 0%;
       margin-left: 5%;
       color: blue;
   }
@@ -19,14 +38,25 @@
   }
 
   #comment{
+    margin-top: 0.5%;
+    margin-bottom: 1%;
+    border-color: gray;
+    border-radius: 5px;
     font-size: 18px;
     margin-left: 5%;  
-    width: 90%;
-    height: 75%;
+    width: 85%;
+    height: 60%;
   }
+
   #commentSubmit{
     margin-top:2%;
     margin-left:5%;
+    font-size: 15px;
+    width:160px;
+    height:32px;
+    background-color: #d32323;
+    color: white;
+    border-radius: 5px;
   }
 
 
@@ -42,4 +72,138 @@
     padding-left: 10px;
     line-height: 30px;
     color: white;
+}
+
+
+.star-rating-1 {
+  fill: khaki;
+}
+
+.star-rating-2 {
+  fill: gold;
+}
+
+.star-rating-3 {
+  fill: darkorange;
+}
+
+.star-rating-4 {
+  fill: orangered;
+}
+
+.star-rating-5 {
+  fill: #d32323;
+}
+
+.star-rating-blank {
+  fill: #d8d8d8;
+}
+
+.Write-Review-Star {
+  margin-left: 5%;
+  margin-top: -2%;
+  margin-bottom: 1%;
+}
+
+ .Stars-Reviews{
+  margin-bottom: 2%;
+  position: relative; 
+}
+
+.Restaurant-Title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* .Details-ReviewCount{
+  position: absolute;
+  top: 12%;
+  font-size: 18px;
+  color: grey;
+}   */
+
+.chart{
+  margin-top:10px;
+  margin-left: -10px;
+  width: 95%;
+  margin-bottom: 5px;
+}
+
+.Chart-Button-Box{
+  margin-left: 75%;
+}
+
+.Chart-Button {
+  font-size:17px;
+  margin-left: 6px;
+  border:none;
+  margin-bottom: -5px;
+}
+
+.Chart-Button:hover {
+  font-weight: bold;
+}
+.Restaurant-Rating{
+  position: relative;
+  margin-top: 1%;
+  display: inline-block;
+}  
+
+.BarBox{
+  color:black
+}
+
+.Review-Count-Details-Button{
+  color:grey;
+  position: fixed;
+  margin-top: 1.25%;
+}
+
+.Details-ReviewCount{
+  margin-bottom:0.5%;
+}
+
+.icon_svg_unclaim{
+  fill: inherit;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  fill:#d8d8d8
+}
+
+.icon_svg_claim{
+  fill: inherit;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  fill:#0073da 
+}
+
+.ClaimStatus{
+  margin-left: 4px;
+  margin-top: 11px;
+  position: absolute;
+}
+
+
+.review-button-info{
+  vertical-align: middle;
+  margin-bottom: 10%;
+  color:#d32323;
+  flex-basis: 7.5%;
+  background: no-repeat center center;
+  background-color: white !important;
+  background-size: contain;
+  opacity: 0.7;
+  text-align: center;
+  box-shadow: none;
+  margin: auto;
+}
+
+.icon_svg_star{
+  fill:#d32323;
+  text-align: center;
+  padding-right: 120%;
 }
