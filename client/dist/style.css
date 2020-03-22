@@ -11,6 +11,19 @@
   }
 
 
+  .modal_content_details {
+    background-color: white;
+    position: absolute;
+    top: 5%;
+    left: 23%;
+    width: 50%;
+    height: 87%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
+
 
   .modal_content-review{
     border-radius: 5px;
@@ -188,7 +201,7 @@
 }
 
 
-.review-button-info{
+/* .review-button-info{
   vertical-align: middle;
   margin-bottom: 10%;
   color:#d32323;
@@ -200,10 +213,29 @@
   text-align: center;
   box-shadow: none;
   margin: auto;
-}
+} */
 
 .icon_svg_star{
   fill:#d32323;
   text-align: center;
   padding-right: 120%;
+}
+
+.overall-rating{
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+
+.Bar-Box{
+  margin-bottom: 1%;
+}
+
+.line-graph-title{
+  margin-left: 2%;
+  font-weight: bold;
+}
+
+.price-category{
+  margin-bottom: 1%;
 }

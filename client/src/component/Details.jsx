@@ -82,17 +82,17 @@ class Details extends React.Component {
 
   render() {
     return (
-      <div className ="modal_content">
+      <div className ="modal_content_details">
         <div className="x-button" id="target" onClick={this.props.updateDetailsStatus}>&times;</div>
         <div className="Line_chart">
         <Chart ratingData={this.updateDetailState(this.props.Reviews).SortByYearAndMonth} />
         </div>
-        <div>Overall Rating</div>
+        <div className="overall-rating">Overall Rating</div>
         <div className="Bar-Box">
-          Start Wondering since
+          Start Wondering since &nbsp;
           {this.updateDetailState(this.props.Reviews).startYear}
-          with
-          {this.props.Reviews.length}
+          &nbsp; with &nbsp;
+          {this.props.Reviews.length} &nbsp;
           Reviews
         </div>
         {this.updateDetailState(this.props.Reviews).ReviewProportion

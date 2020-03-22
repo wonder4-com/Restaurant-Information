@@ -154,13 +154,14 @@ updateWriteReviewClickStatus() {
           {this.state.ShowDetails ? <Details updateDetailsStatus={this.updateDetailsClickStatus} Reviews={this.state.allReview} /> : null}
         </div>
 
-        <div>{this.state.Restaurant.price}
-        &emsp;
+        <div className="price-category">
+          {this.state.Restaurant.price}
+          &emsp;
           {this.state.Restaurant.category}
         </div>
         <div>
           <button className="review-button-info" type="button" onClick={this.updateWriteReviewClickStatus}>
-            <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" className="icon_svg_star"><path d="M8.94 1l2.373 5.387 5.187.758-3.75 3.67.928 5.077-4.737-2.907L4.367 16l.885-5.186-3.75-3.67 5.187-.757L8.94 1z"></path></svg></span>
+            {/* <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" className="icon_svg_star"><path d="M8.94 1l2.373 5.387 5.187.758-3.75 3.67.928 5.077-4.737-2.907L4.367 16l.885-5.186-3.75-3.67 5.187-.757L8.94 1z"></path></svg></span> */}
             WriteReview</button>
           &emsp;
           {this.state.ShowReviewForm ? <WriteReview updateReviewFormStatus={this.updateWriteReviewClickStatus} name={this.state.Restaurant.name} /> : null}

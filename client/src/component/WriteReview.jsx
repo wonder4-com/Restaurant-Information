@@ -1,6 +1,6 @@
 import React from 'react';
 import Star from './Star.jsx';
-
+import $ from 'jquery';
 
 class WriteReview extends React.Component {
   constructor(props) {
@@ -8,7 +8,33 @@ class WriteReview extends React.Component {
     this.state = {
       rating: 0,
       hoverRating: 0,
+      input: ''
     };
+    this.handleHoverRating = this.handleHoverRating.bind(this);
+    this.handleRating = this.handleRating.bind(this);
+    this.handleinput = this.handleinput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    this.props.updateReviewFormStatus();
+    $.ajax({
+      method: 'POST',
+      url: '/restaurant',
+      data: JSON.stringify({rating: this.state.rating, comment: this.state.input, name: this.props.name}),
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('successfully post the content', data);
+      },
+      error: (err) => {
+        console.log('encounter error' ,err);
+      }
+    });
+  }
+
+  handleinput(event){
+    console.log(event.target.value);
+    this.setState({ input: event.target.value});
   }
 
   handleRating(value) {
@@ -55,8 +81,8 @@ class WriteReview extends React.Component {
         <div className="Write-Review-Star">
           {stars}
         </div>
-        <textarea id="comment" placeholder="your comment here" />
-        <button id="commentSubmit">Post Review</button>
+        <textarea onChange={this.handleinput} id="comment" placeholder="your comment here" />
+        <button onClick={this.handleSubmit} id="commentSubmit">Post Review</button>
       </div>
 
     );
