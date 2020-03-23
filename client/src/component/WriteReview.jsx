@@ -24,7 +24,19 @@ class WriteReview extends React.Component {
       data: JSON.stringify({rating: this.state.rating, comment: this.state.input, name: this.props.name}),
       contentType: 'application/json',
       success: (data) => {
-        console.log('successfully post the content', data);
+        console.log('successfully post',data);
+        $.ajax({
+          method: 'GET',
+          url: '/currentRestaurant',
+          dataType: 'json',
+          success: (data) => {
+            console.log('this is my ajax call from write review', data);
+            this.props.updateResInfoState(data);
+          },
+          error: (err) => {
+            console.log(err);
+          }
+        });
       },
       error: (err) => {
         console.log('encounter error' ,err);

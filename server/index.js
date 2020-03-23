@@ -14,6 +14,28 @@ app.use(bodyParser.json())
 // need to check the path
 app.use(express.static(__dirname + '/../client/dist'));
 
+let lastRetaurant;
+
+app.get('/currentRestaurant', (req, res) =>{
+  db.query(`SELECT * FROM restaurants INNER JOIN reviews ON restaurants.id=restaurant_id WHERE restaurants.id = ${lastRetaurant}`, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      if (result.length ===0) {
+        db.query(`SELECT * FROM restaurants where id=${lastRetaurant}`, (err,result) =>{
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(result);
+        }
+      }) 
+      }else{
+        res.send(result)
+      }
+    }
+  });
+})
+
 app.get('/restaurant', (req, res) =>{
   const randomRestaurant = Math.floor(Math.random() * 100) +1;
   db.query(`SELECT * FROM restaurants INNER JOIN reviews ON restaurants.id=restaurant_id WHERE restaurants.id = ${randomRestaurant}`, (err, result) => {
@@ -30,6 +52,7 @@ app.get('/restaurant', (req, res) =>{
         }) 
       }else{
         console.log(randomRestaurant);
+        lastRetaurant = randomRestaurant;
         res.send(result)
       }
     }
@@ -57,6 +80,7 @@ app.post('/restaurant', (req,res) => {
           console.log(err);
         } else {
           console.log('post successful line 54 post')
+          res.end();
         }
       });
     }

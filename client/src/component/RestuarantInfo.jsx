@@ -36,7 +36,6 @@ class RestaurantInfo extends React.Component {
 
   updateState (data) {
     var claimStatus;
-    const that = this;
     const allReview = [];
     if (data[0].claimed === 'true') {
       claimStatus = 'Claimed';
@@ -168,7 +167,7 @@ updateWriteReviewClickStatus() {
             <span className="review-info-text">Write a Review</span>
           </button>
           &emsp;
-          {this.state.ShowReviewForm ? <WriteReview updateReviewFormStatus={this.updateWriteReviewClickStatus} name={this.state.Restaurant.name} /> : null}
+          {this.state.ShowReviewForm ? <WriteReview updateResInfoState={this.updateState} updateReviewFormStatus={this.updateWriteReviewClickStatus} name={this.state.Restaurant.name} /> : null}
           <button type="button" className="photo-button-info" onClick={this.updateAddPhotoClickStatus}>
             <span aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" className="icon_svg_camera"><path d="M15 15H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2h2a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2zM9 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm0 6.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"></path></svg></span>
             <span className="photo-info-text">Add Photo</span>
