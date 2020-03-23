@@ -1,6 +1,6 @@
 import React from 'react';
-import Star from './Star.jsx';
 import $ from 'jquery';
+import Star from './Star.jsx';
 
 class WriteReview extends React.Component {
   constructor(props) {

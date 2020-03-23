@@ -50,7 +50,11 @@ class RestaurantInfo extends React.Component {
         return accumulator + currentObj.rating
       }, 0) / data.length;
 
-      average = Math.round(average);
+      if (average % 1 < 0.76 && average % 1 > 0.24) {
+        average = Math.floor(average) + 0.5;
+      } else { 
+        average = Math.round(average);
+      }
 
       var review = { AverageRating: average, amount: data.length };
     } else {
@@ -96,20 +100,44 @@ updateWriteReviewClickStatus() {
     }
 }
 
-
   render() {
     let stars =[];
+    const color = [
+      "khaki",
+      "gold",
+      "darkorange",
+      "orangered",
+      "#d32323"
+    ];
     for (let i = 0; i < 5; i++) {
       if (this.state.Review.AverageRating > i) {
-        stars.push(
-          <span className={"Star-Rating-" + this.state.Review.AverageRating}>
-            <svg viewBox="0 0 160 160" width="30" height="30">
-              <path d="M110.6 0h-76.9c-18.6 0-33.7 15.1-33.7 33.7v76.9c0 18.6 15.1 33.7 33.7 33.7h76.9c18.6 0 33.7-15.1 33.7-33.7v-76.9c0-18.6-15.1-33.7-33.7-33.7z"/>
-              <path d="M33.3,0.3C14.7,0.3-0.4,15.4-0.4,34V111c0,18.6,15.1,33.7,33.7,33.7h38.3V0.3H33.3z"/>
-              <path fill="#fff" d="M72 19.3l13.6 35.4 37.9 2-29.5 23.9 9.8 36.6-31.8-20.6-31.8 20.6 9.8-36.6-29.5-23.9 37.9-2z"/>
-            </svg>
-          </span>
-        );
+        if (this.state.Review.AverageRating - i !== 0.5) {
+          stars.push(
+            <span className={"Star-Rating-" + Math.floor(this.state.Review.AverageRating)}>
+              <svg viewBox="0 0 160 160" width="30" height="30">
+                <path d="M110.6 0h-76.9c-18.6 0-33.7 15.1-33.7 33.7v76.9c0 18.6 15.1 33.7 33.7 33.7h76.9c18.6 0 33.7-15.1 33.7-33.7v-76.9c0-18.6-15.1-33.7-33.7-33.7z"/>
+                <path d="M33.3,0.3C14.7,0.3-0.4,15.4-0.4,34V111c0,18.6,15.1,33.7,33.7,33.7h38.3V0.3H33.3z"/>
+                <path fill="#fff" d="M72 19.3l13.6 35.4 37.9 2-29.5 23.9 9.8 36.6-31.8-20.6-31.8 20.6 9.8-36.6-29.5-23.9 37.9-2z" />
+              </svg>
+            </span>
+          );
+        } else {
+          console.log('hello')
+          stars.push(
+            <span className={"Star-Rating-Blank"}>
+              <svg viewBox="0 0 160 160" width="30" height="30">
+                <defs>
+                  <linearGradient id="half_grad">
+                    <stop offset="50%" stopColor={color[Math.floor(this.state.Review.AverageRating) - 1]}/>
+                  </linearGradient>
+                </defs>
+                <path d="M110.6 0h-76.9c-18.6 0-33.7 15.1-33.7 33.7v76.9c0 18.6 15.1 33.7 33.7 33.7h76.9c18.6 0 33.7-15.1 33.7-33.7v-76.9c0-18.6-15.1-33.7-33.7-33.7z"/>
+                <path d="M33.3,0.3C14.7,0.3-0.4,15.4-0.4,34V111c0,18.6,15.1,33.7,33.7,33.7h38.3V0.3H33.3z" fill="url(#half_grad)"/>
+                <path fill="#fff" d="M72 19.3l13.6 35.4 37.9 2-29.5 23.9 9.8 36.6-31.8-20.6-31.8 20.6 9.8-36.6-29.5-23.9 37.9-2z" />
+              </svg>
+            </span>
+          );
+        }
       } else {
         stars.push(
           <span className={"Star-Rating-Blank"}>
