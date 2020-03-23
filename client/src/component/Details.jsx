@@ -75,7 +75,7 @@ class Details extends React.Component {
 
     }
 
-    const reviewProportionArray = [reviewProportion.zeroStar, reviewProportion.oneStar, reviewProportion.twoStars, reviewProportion.threeStars, reviewProportion.fourStars, reviewProportion.fiveStars]
+    const reviewProportionArray = [reviewProportion.fiveStars, reviewProportion.fourStars, reviewProportion.threeStars, reviewProportion.twoStars, reviewProportion.oneStar, reviewProportion.zeroStar]
     return { Month: month, Year: year, ReviewProportion: reviewProportionArray, startYear: startingYear, SortByYearAndMonth: yearWithMonth, yearStatus: '2020' };
   }
 
@@ -97,7 +97,7 @@ class Details extends React.Component {
         </div>
         {this.updateDetailState(this.props.Reviews).ReviewProportion
           .map((ratingPercentage, index) => {
-            const legend = `${index}  Stars`;
+            const legend = `${5-index}  Stars`;
             return <Bar percent={ratingPercentage} Star={legend} />;
           })}
       </div>
