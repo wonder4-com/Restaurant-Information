@@ -1,6 +1,6 @@
 import React from 'react';
 import {Line} from 'react-chartjs-2';
-
+import styles from '../../dist/style.css';
 
 class Chart extends React.Component {
   constructor(props) {
@@ -83,13 +83,13 @@ class Chart extends React.Component {
   render() {
     return (
         <div>
-          <div className="Chart-Button-Box">
-            <button className="Chart-Button" type="button" onClick={this.updateYearStatusTo2019}>2019 </button>
-            <button className="Chart-Button" type="button" onClick={this.updateYearStatusTo2020}>2020 </button>
+          <div className={styles.Chart_Button_Box}>
+            <button className={styles.Chart_Button} type="button" onClick={this.updateYearStatusTo2019}>2019 </button>
+            <button className={styles.Chart_Button} type="button" onClick={this.updateYearStatusTo2020}>2020 </button>
           </div>
-            <span className="line-graph-title">Monthly Trend</span>
+            <span className={styles.line_graph_title}>Monthly Trend</span>
           
-          <div className="chart">
+          <div className={styles.chart}>
             <Line
               data={this.state.chartData}
               options={ {

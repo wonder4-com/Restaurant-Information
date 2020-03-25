@@ -1,4 +1,6 @@
 import React from 'react';
+import styles from '../../dist/style.css';
+
 
 class AddPhoto extends React.Component {
   constructor(props) {
@@ -9,8 +11,8 @@ class AddPhoto extends React.Component {
   render() {
     return (
     // ReactDOM.createPortal(
-      <div className ="modal_content">
-        <div className="x-button" onClick={this.props.updatePhotoFormStatus}>&times;</div>
+      <div className ={styles.modal_content}>
+        <div className={styles.x_button} onClick={this.props.updatePhotoFormStatus}>&times;</div>
         <h1>ADD PHOTO</h1>
         {/* <DragAndDrop /> */}
       </div>

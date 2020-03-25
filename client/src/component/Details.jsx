@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from './Chart.jsx'
 import Bar from './Bar.jsx'
+import styles from '../../dist/style.css';
 
 class Details extends React.Component {
   constructor(props) {
@@ -82,13 +83,13 @@ class Details extends React.Component {
 
   render() {
     return (
-      <div className ="modal_content_details">
-        <div className="x-button" id="target" onClick={this.props.updateDetailsStatus}>&times;</div>
-        <div className="Line_chart">
+      <div className = {styles.modal_content_details}>
+        <div className={styles.x_button} onClick={this.props.updateDetailsStatus}>&times;</div>
+        <div className={styles.Line_chart}>
         <Chart ratingData={this.updateDetailState(this.props.Reviews).SortByYearAndMonth} />
         </div>
-        <div className="overall-rating">Overall Rating</div>
-        <div className="Bar-Box">
+        <div className={styles.overall_rating}>Overall Rating</div>
+        <div className={styles.Bar_Box}>
           Start Wondering since &nbsp;
           {this.updateDetailState(this.props.Reviews).startYear}
           &nbsp; with &nbsp;
