@@ -1,6 +1,7 @@
 .modal_content {
+    z-index: 1;
     background-color: white;
-    position: absolute;
+    position: fixed;
     top: 5%;
     left: 23%;
     width: 50%;
@@ -11,8 +12,23 @@
   }
 
 
+  .modal_content_details {
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    top: 5%;
+    left: 23%;
+    width: 50%;
+    height: 87%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
 
-  .modal_content-review{
+
+
+  .modal_content_review{
+    z-index: 1;
     border-radius: 5px;
     background-color: white;
     position: absolute;
@@ -32,12 +48,12 @@
       margin-left: 5%;
       color: blue;
   }
-  .x-button{
+  .x_button{
     width:3%;
     margin-left: 95%;
   }
 
-  #comment{
+  .comment{
     margin-top: 0.5%;
     margin-bottom: 1%;
     border-color: gray;
@@ -48,7 +64,7 @@
     height: 60%;
   }
 
-  #commentSubmit{
+  .commentSubmit{
     margin-top:2%;
     margin-left:5%;
     font-size: 15px;
@@ -75,31 +91,31 @@
 }
 
 
-.star-rating-1 {
+.star_rating_1 {
   fill: khaki;
 }
 
-.star-rating-2 {
+.star_rating_2 {
   fill: gold;
 }
 
-.star-rating-3 {
+.star_rating_3 {
   fill: darkorange;
 }
 
-.star-rating-4 {
+.star_rating_4 {
   fill: orangered;
 }
 
-.star-rating-5 {
+.star_rating_5 {
   fill: #d32323;
 }
 
-.star-rating-blank {
+.star_rating_blank {
   fill: #d8d8d8;
 }
 
-.Write-Review-Star {
+.Write_Review_Star {
   margin-left: 5%;
   margin-top: -2%;
   margin-bottom: 1%;
@@ -110,7 +126,7 @@
   position: relative; 
 }
 
-.Restaurant-Title {
+.Restaurant_Title {
   font-size: 30px;
   font-weight: bold;
 }
@@ -129,37 +145,37 @@
   margin-bottom: 5px;
 }
 
-.Chart-Button-Box{
+.Chart_Button_Box{
   margin-left: 75%;
 }
 
-.Chart-Button {
+.Chart_Button {
   font-size:17px;
   margin-left: 6px;
   border:none;
   margin-bottom: -5px;
 }
 
-.Chart-Button:hover {
+.Chart_Button:hover {
   font-weight: bold;
 }
-.Restaurant-Rating{
+.Restaurant_Rating{
   position: relative;
   margin-top: 1%;
   display: inline-block;
 }  
 
-.BarBox{
+.Bar_Box{
   color:black
 }
 
-.Review-Count-Details-Button{
+.Review_Count_Details_Button{
   color:grey;
-  position: fixed;
+  position: relative;
   margin-top: 1.25%;
 }
 
-.Details-ReviewCount{
+.Details_ReviewCount{
   margin-bottom:0.5%;
 }
 
@@ -188,22 +204,194 @@
 }
 
 
-.review-button-info{
-  vertical-align: middle;
-  margin-bottom: 10%;
+.review_button_info{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  width : 130px;
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  vertical-align: center;
   color:#d32323;
-  flex-basis: 7.5%;
-  background: no-repeat center center;
+  background-color: white !important;
+  background-size: contain;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.photo_button_info{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  width : 110px;
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  color:#666;
   background-color: white !important;
   background-size: contain;
   opacity: 0.7;
-  text-align: center;
   box-shadow: none;
-  margin: auto;
+  border-radius: 3px;
 }
 
-.icon_svg_star{
-  fill:#d32323;
+.share_button_info{
+  position: relative;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  width : 80px;
   text-align: center;
-  padding-right: 120%;
+  height: 30px;
+  font-weight: bold;
+  vertical-align: center;
+  color:#666;
+  background-color: white;
+  opacity: 0.7;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.save_button_info{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  width : 70px;
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  vertical-align: center;
+  color:#666;
+  background-color: white !important;
+  background-size: contain;
+  opacity: 0.7;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.follow_button_info{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  width : 85px;
+  text-align: center;
+  height: 30px;
+  font-weight: bold;
+  vertical-align: center;
+  color:#666;
+  background-color: white !important;
+  background-size: contain;
+  opacity: 0.7;
+  box-shadow: none;
+  border-radius: 3px;
+  margin-left: 17px;
+}
+
+
+.details_button_info{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  width : 75px;
+  text-align: center;
+  height: 25px;
+  font-weight: bold;
+  vertical-align: center;
+  color:#666;
+  background-color: white !important;
+  background-size: contain;
+  opacity: 0.7;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+/* icon in the restaurantinto page */
+
+.icon_svg_star{
+  position: relative;
+  fill:#d32323;
+  margin-left: -5px;
+  text-align: center;
+  vertical-align: center;
+}
+
+.icon_svg_save{
+  position: relative;
+  fill:#797979;
+  text-align: center;
+  vertical-align: center;
+}
+
+.icon_svg_share{
+  position: relative;
+  fill:#797979;
+  text-align: center;
+  vertical-align: center;
+}
+
+.icon_svg_camera{
+  position: relative;
+  fill:gray;
+  text-align: center;
+  vertical-align: center;
+}
+
+.icon_svg_bar{
+  position: relative;
+  fill:gray;
+  text-align: center;
+  vertical-align: center;
+}
+
+.icon_svg_plus{
+  position: relative;
+  fill:grey;
+  text-align: center;
+  vertical-align: center;
+}
+
+.review_info_text{
+  position: relative;
+  margin-left: 1px;
+  margin-top: -8px;
+  color:#d32323
+}
+
+
+.photo_info_text{
+  position: relative;
+  margin-left: 4px;
+  margin-top: -8px;
+}
+
+.share_info_text{
+  position: relative;
+  margin-left: 4px;
+  margin-top: -8px;
+}
+
+.save_info_text{
+  position: relative;
+  margin-left: 4px;
+  margin-top: -8px;
+}
+
+.follow_info_text{
+  position: relative;
+  margin-left: 4px;
+  margin-top: -8px;
+}
+
+.overall_rating{
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+
+
+.Bar_Box{
+  margin-bottom: 1%;
+}
+
+.line_graph_title{
+  margin-left: 2%;
+  font-weight: bold;
+}
+
+.price_category{
+  margin-bottom: 1%;
 }

@@ -4,5 +4,5 @@ import RestaurantInfo from './component/RestuarantInfo.jsx';
 
 ReactDOM.render(
   <RestaurantInfo />,
-  document.getElementById('app')
+  document.getElementById('RestaurantInfo'),
 )

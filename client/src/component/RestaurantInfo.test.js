@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import ReactTestUtils from'react-dom/test-utils'
 import RestaurantInfo from './RestuarantInfo.jsx';
-import Details from './Details.jsx';
+
 
 var restauranInfo = {Restaurant: {claimed: "Unclaimed", name: "Bashirian, Zboncak and Batz", price: "$$$", category: "buffet"},
 Review: {AverageRating: 4, amount: 1}}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Chart from './Chart.jsx'
 import Bar from './Bar.jsx'
+import styles from '../../dist/style.css';
 
 class Details extends React.Component {
   constructor(props) {
@@ -75,29 +76,29 @@ class Details extends React.Component {
 
     }
 
-    const reviewProportionArray = [reviewProportion.zeroStar, reviewProportion.oneStar, reviewProportion.twoStars, reviewProportion.threeStars, reviewProportion.fourStars, reviewProportion.fiveStars]
+    const reviewProportionArray = [reviewProportion.fiveStars, reviewProportion.fourStars, reviewProportion.threeStars, reviewProportion.twoStars, reviewProportion.oneStar, reviewProportion.zeroStar]
     return { Month: month, Year: year, ReviewProportion: reviewProportionArray, startYear: startingYear, SortByYearAndMonth: yearWithMonth, yearStatus: '2020' };
   }
 
 
   render() {
     return (
-      <div className ="modal_content">
-        <div className="x-button" id="target" onClick={this.props.updateDetailsStatus}>&times;</div>
-        <div className="Line_chart">
+      <div className = {styles.modal_content_details}>
+        <div className={styles.x_button} onClick={this.props.updateDetailsStatus}>&times;</div>
+        <div className={styles.Line_chart}>
         <Chart ratingData={this.updateDetailState(this.props.Reviews).SortByYearAndMonth} />
         </div>
-        <div>Overall Rating</div>
-        <div className="Bar-Box">
-          Start Wondering since
+        <div className={styles.overall_rating}>Overall Rating</div>
+        <div className={styles.Bar_Box}>
+          Start Wondering since &nbsp;
           {this.updateDetailState(this.props.Reviews).startYear}
-          with
-          {this.props.Reviews.length}
+          &nbsp; with &nbsp;
+          {this.props.Reviews.length} &nbsp;
           Reviews
         </div>
         {this.updateDetailState(this.props.Reviews).ReviewProportion
           .map((ratingPercentage, index) => {
-            const legend = `${index}  Stars`;
+            const legend = `${5-index}  Stars`;
             return <Bar percent={ratingPercentage} Star={legend} />;
           })}
       </div>
