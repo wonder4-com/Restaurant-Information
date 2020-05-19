@@ -87,8 +87,7 @@ class Chart extends React.Component {
             <button className={styles.Chart_Button} type="button" onClick={this.updateYearStatusTo2019}>2019 </button>
             <button className={styles.Chart_Button} type="button" onClick={this.updateYearStatusTo2020}>2020 </button>
           </div>
-            <span className={styles.line_graph_title}>Monthly Trend</span>
-          
+          <span className={styles.line_graph_title}> Monthly Trend</span>
           <div className={styles.chart}>
             <Line
               data={this.state.chartData}
@@ -114,4 +113,4 @@ class Chart extends React.Component {
 }
 
 
-export default Chart
+export default Chart;

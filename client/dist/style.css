@@ -1,5 +1,5 @@
 .modal_content {
-    z-index: 1;
+    z-index: 1000000;
     background-color: white;
     position: fixed;
     top: 5%;
@@ -13,7 +13,7 @@
 
 
   .modal_content_details {
-    z-index: 1;
+    z-index: 1000000;
     background-color: white;
     position: fixed;
     top: 5%;
@@ -25,10 +25,24 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
+  .photoSubmit{
+    margin-top: 2%;
+    margin-left: 9%;
+    font-size: 15px;
+    width: 160px;
+    height: 32px;
+    background-color: #d32323;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .container{
+    margin-left:9%;
+  }
 
 
   .modal_content_review{
-    z-index: 1;
+    z-index: 1000000;
     border-radius: 5px;
     background-color: white;
     position: fixed;
@@ -41,6 +55,23 @@
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
+
+  .modal_content_photo{
+    z-index: 1000000;
+    border-radius: 5px;
+    background-color: white;
+    position: fixed;
+    top: 15%;
+    left: 23%;
+    width: 40%;
+    height: 60%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
+  
+
   h1{
       position:relative;
       margin-bottom: 4%;
@@ -48,6 +79,15 @@
       margin-left: 5%;
       color: blue;
   }
+
+  .photo{
+    position:relative;
+    margin-bottom: 4%;
+    margin-top: 3%;
+    margin-left: 9%;
+    color: blue;
+  }
+
   .x_button{
     width:3%;
     margin-left: 95%;
@@ -171,8 +211,9 @@
 
 .Review_Count_Details_Button{
   color:grey;
-  position: relative;
-  margin-top: 1.25%;
+  position: absolute;
+  padding: 13px 0 0 5px;
+  
 }
 
 .Details_ReviewCount{
@@ -208,7 +249,7 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 13px;
   width : 130px;
-  text-align: center;
+  text-align: left;
   height: 30px;
   font-weight: bold;
   vertical-align: center;
@@ -223,7 +264,7 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 13px;
   width : 110px;
-  text-align: center;
+  text-align: left;
   height: 30px;
   font-weight: bold;
   color:#666;
@@ -239,7 +280,7 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 13px;
   width : 80px;
-  text-align: center;
+  text-align: left;
   height: 30px;
   font-weight: bold;
   vertical-align: center;
@@ -254,7 +295,7 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 13px;
   width : 70px;
-  text-align: center;
+  text-align: left;
   height: 30px;
   font-weight: bold;
   vertical-align: center;
@@ -270,7 +311,7 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 13px;
   width : 85px;
-  text-align: center;
+  text-align: left;
   height: 30px;
   font-weight: bold;
   vertical-align: center;
@@ -288,7 +329,7 @@
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 13px;
   width : 75px;
-  text-align: center;
+  text-align: left;
   height: 25px;
   font-weight: bold;
   vertical-align: center;
@@ -305,76 +346,82 @@
 .icon_svg_star{
   position: relative;
   fill:#d32323;
-  margin-left: -5px;
-  text-align: center;
+  margin-top: 3px;
+  margin-top: 3px;
+  text-align: left;
   vertical-align: center;
 }
 
 .icon_svg_save{
   position: relative;
   fill:#797979;
-  text-align: center;
+  margin-top: 3px;
+  text-align: left;
   vertical-align: center;
 }
 
 .icon_svg_share{
   position: relative;
   fill:#797979;
-  text-align: center;
+  margin-top: 3px;
+  text-align: left;
   vertical-align: center;
 }
 
 .icon_svg_camera{
   position: relative;
   fill:gray;
-  text-align: center;
+  margin-top: 3px;
+  text-align: left;
   vertical-align: center;
 }
 
 .icon_svg_bar{
   position: relative;
-  fill:gray;
-  text-align: center;
+  fill:grey;
+  margin-top: 3px;
+  text-align: left;
   vertical-align: center;
 }
 
 .icon_svg_plus{
   position: relative;
   fill:grey;
-  text-align: center;
+  margin-top: 3px;
+  text-align: left;
   vertical-align: center;
 }
 
+.details_info_text {
+  position: absolute;
+  padding: 2px 0 1px 0px;
+}
+
 .review_info_text{
-  position: relative;
-  margin-left: 1px;
-  margin-top: -8px;
-  color:#d32323
+  position: absolute;
+  color:#d32323;
+  padding: 4px 0 1px 4px;
 }
 
 
 .photo_info_text{
-  position: relative;
-  margin-left: 4px;
-  margin-top: -8px;
+  position: absolute;
+  padding: 4px 0 1px 4px;
 }
 
 .share_info_text{
-  position: relative;
-  margin-left: 4px;
-  margin-top: -8px;
+  position: absolute;
+  padding: 4px 0 1px 4px;
 }
 
 .save_info_text{
-  position: relative;
-  margin-left: 4px;
-  margin-top: -8px;
+  position: absolute;
+  padding: 4px 0 1px 4px;
 }
 
 .follow_info_text{
-  position: relative;
-  margin-left: 4px;
-  margin-top: -8px;
+  position: absolute;
+  padding: 4px 0 1px 4px;
 }
 
 .overall_rating{

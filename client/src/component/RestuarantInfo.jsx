@@ -5,7 +5,6 @@ import $ from 'jquery';
 import Details from './Details.jsx';
 import WriteReview from './WriteReview.jsx';
 import AddPhoto from './AddPhoto.jsx';
-
 import styles from '../../dist/style.css';
 
 class RestaurantInfo extends React.Component {
@@ -74,8 +73,7 @@ updateDetailsClickStatus() {
     console.log('Deatils clicked');
     if (!this.state.ShowPhotoForm && !this.state.ShowReviewForm) {
       this.setState({
-        Restaurant: this.state.Restaurant, Review: this.state.Review, ShowDetails: !this.state.ShowDetails,
-        ShowReviewForm: this.state.ShowReviewForm, ShowPhotoForm: this.state.ShowPhotoForm, allReview: this.state.allReview
+        ShowDetails: !this.state.ShowDetails
       });
     }
 }
@@ -84,8 +82,7 @@ updateAddPhotoClickStatus() {
     console.log('Photo clicked')
     if (!this.state.ShowDetails && !this.state.ShowReviewForm) {
       this.setState({
-        Restaurant: this.state.Restaurant, Review: this.state.Review, ShowDetails: this.state.ShowDetails,
-        ShowReviewForm: this.state.ShowReviewForm, ShowPhotoForm: !this.state.ShowPhotoForm, allReview: this.state.allReview
+        ShowPhotoForm: !this.state.ShowPhotoForm
       });
     }
 }
@@ -94,20 +91,19 @@ updateWriteReviewClickStatus() {
     console.log('Review clicked')
     if (!this.state.ShowPhotoForm && !this.state.ShowDetails) {
       this.setState({
-        Restaurant: this.state.Restaurant, Review: this.state.Review, ShowDetails: this.state.ShowDetails,
-        ShowReviewForm: !this.state.ShowReviewForm, ShowPhotoForm: this.state.ShowPhotoForm, allReview: this.state.allReview
+        ShowReviewForm: !this.state.ShowReviewForm
       });
     }
 }
 
   render() {
-    let stars =[];
+    let stars = [];
     const color = [
-      "khaki",
-      "gold",
-      "darkorange",
-      "orangered",
-      "#d32323"
+      'khaki',
+      'gold',
+      'darkorange',
+      'orangered',
+      '#d32323'
     ];
     for (let i = 0; i < 5; i++) {
       if (this.state.Review.AverageRating > i) {
@@ -152,7 +148,6 @@ updateWriteReviewClickStatus() {
     }
     return (
       <div>
-
         <div>
           <span className={styles.Restaurant_Title}>
             {this.state.Restaurant.name}&ensp;
@@ -178,7 +173,7 @@ updateWriteReviewClickStatus() {
             &nbsp;Reviews&emsp;
             <button className={styles.details_button_info} type="button" onClick={this.updateDetailsClickStatus}>
               <span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" className={styles.icon_svg_bar}><path d="M9 11V5h2v6H9zM6 3h2v8H6V3zM3 7h2v4H3V7z"></path></svg></span>
-              <span>Details</span>
+              <span className={styles.details_info_text}>Details</span>
             </button>
           </span>
           {this.state.ShowDetails ? <Details updateDetailsStatus={this.updateDetailsClickStatus} Reviews={this.state.allReview} /> : null}
@@ -212,7 +207,7 @@ updateWriteReviewClickStatus() {
             <span className={styles.save_info_text}>Save</span>
           </button>
           <button className={styles.follow_button_info} type="button">
-            <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" classNmae={styles.icon_svg_plus}><path d="M16 10h-6v6H8v-6H2V8h6V2h2v6h6v2z"></path></svg></span>
+            <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" className={styles.icon_svg_plus}><path d="M16 10h-6v6H8v-6H2V8h6V2h2v6h6v2z"></path></svg></span>
             <span className={styles.follow_info_text}>Follow</span>
           </button>
         </div>
